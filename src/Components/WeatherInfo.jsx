@@ -5,9 +5,6 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
 class WeatherInfo extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     console.log(this.props);
     return (
