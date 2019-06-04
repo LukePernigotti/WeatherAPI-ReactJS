@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/WeatherAPI-ReactJS/static/css/main.c82877c4.chunk.css",
+    "main.js": "/WeatherAPI-ReactJS/static/js/main.6f60ce55.chunk.js",
+    "main.js.map": "/WeatherAPI-ReactJS/static/js/main.6f60ce55.chunk.js.map",
+    "runtime~main.js": "/WeatherAPI-ReactJS/static/js/runtime~main.72786602.js",
+    "runtime~main.js.map": "/WeatherAPI-ReactJS/static/js/runtime~main.72786602.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "/WeatherAPI-ReactJS/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.4aeac1f2.chunk.js": "/WeatherAPI-ReactJS/static/js/2.4aeac1f2.chunk.js",
+    "static/js/2.4aeac1f2.chunk.js.map": "/WeatherAPI-ReactJS/static/js/2.4aeac1f2.chunk.js.map",
+    "index.html": "/WeatherAPI-ReactJS/index.html",
+    "precache-manifest.a8087229be97181d5a4dbaa97ce118ee.js": "/WeatherAPI-ReactJS/precache-manifest.a8087229be97181d5a4dbaa97ce118ee.js",
+    "service-worker.js": "/WeatherAPI-ReactJS/service-worker.js",
+    "static/css/2.22a7d4ef.chunk.css.map": "/WeatherAPI-ReactJS/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.c82877c4.chunk.css.map": "/WeatherAPI-ReactJS/static/css/main.c82877c4.chunk.css.map"
+  }
+}
