@@ -6,20 +6,20 @@ import Card from "react-bootstrap/Card";
 
 class WeatherInfo extends Component {
   render() {
-    console.log(this.props);
+    const { data, unit, weatherState } = this.props;
     return (
       <Row>
         <Col>
-          <img src={this.props.data.icon} alt={this.props.weatherState} />
-          <Card.Text>{this.props.data.weatherState}</Card.Text>
+          <img src={data.icon} alt={weatherState} />
+          <Card.Text>{data.weatherState}</Card.Text>
         </Col>
         <Col>
           <Card.Title>
-            T: {this.props.data.temperature}
-            {this.props.unit}
+            T: {data.temperature}
+            {unit}
           </Card.Title>
-          <Card.Text>Humedad: {this.props.data.humidity}</Card.Text>
-          <Card.Text>Viento: {this.props.data.wind}</Card.Text>
+          <Card.Text>Humedad: {data.humidity}</Card.Text>
+          <Card.Text>Viento: {data.wind}</Card.Text>
         </Col>
       </Row>
     );

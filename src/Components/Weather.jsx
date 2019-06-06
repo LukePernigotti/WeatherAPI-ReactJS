@@ -97,7 +97,7 @@ class Weather extends Component {
   };
 
   getUrl = () => {
-    return `http://api.openweathermap.org/data/2.5/weather?id=${
+    return `https://api.openweathermap.org/data/2.5/weather?id=${
       this.state.cityId
     }&appid=${apiKey}`;
   };
@@ -106,11 +106,9 @@ class Weather extends Component {
     this.setState({ isButtonDisabled: true, isLoading: false, unit: "" });
     fetch(this.getUrl())
       .then(data => {
-        //console.log(data);
         return data.json();
       })
       .then(weatherData => {
-        //console.log(weatherData);
         const data = getWeatherData(weatherData);
         this.setState({
           unit: "°C",
@@ -133,18 +131,18 @@ class Weather extends Component {
     if (this.state.cityId !== prevState.cityId) {
       this.handleUpdate();
     }
-    console.log(this.state.data.icon);
   }
 
   render() {
+    const { data, city, unit, isButtonDisabled, isLoading } = this.state;
     return (
       <Container>
         <Row>
           <Col>
             <Card>
-              <Card.Title>{this.state.city}</Card.Title>
-              {this.state.isLoading ? (
-                <WeatherInfo data={this.state.data} />
+              <Card.Title>{city}</Card.Title>
+              {isLoading ? (
+                <WeatherInfo data={data} unit={unit} />
               ) : (
                 <Container className="my-4">
                   <Spinner
@@ -159,25 +157,25 @@ class Weather extends Component {
               <ButtonGroup className="mt-2" aria-label="Basic example">
                 <Button
                   variant="primary"
-                  className={this.state.unit === "°C" ? "active" : ""}
+                  className={unit === "°C" ? "active" : ""}
                   onClick={this.convertToCelsius}
-                  disabled={this.state.isButtonDisabled}
+                  disabled={isButtonDisabled}
                 >
                   °C
                 </Button>
                 <Button
                   variant="primary"
-                  className={this.state.unit === "°F" ? "active" : ""}
+                  className={unit === "°F" ? "active" : ""}
                   onClick={this.convertToFahrenheit}
-                  disabled={this.state.isButtonDisabled}
+                  disabled={isButtonDisabled}
                 >
                   °F
                 </Button>
                 <Button
                   variant="primary"
-                  className={this.state.unit === "K" ? "active" : ""}
+                  className={unit === "K" ? "active" : ""}
                   onClick={this.convertToKelvin}
-                  disabled={this.state.isButtonDisabled}
+                  disabled={isButtonDisabled}
                 >
                   K
                 </Button>
@@ -187,22 +185,40 @@ class Weather extends Component {
           <Col>
             <ButtonGroup vertical>
               <Button
+                onClick={() => this.handleCity("Asunción, Paraguay", "3474570")}
+                disabled={isButtonDisabled}
+              >
+                Asunción, Paraguay
+              </Button>
+              <Button
+                onClick={() => this.handleCity("Bogota, Colombia", "3688689")}
+                disabled={isButtonDisabled}
+              >
+                Bogota, Colombia
+              </Button>
+              <Button
                 onClick={() =>
                   this.handleCity("Buenos Aires, Argentina", "3433955")
                 }
-                disabled={this.state.isButtonDisabled}
+                disabled={isButtonDisabled}
               >
                 Buenos Aires, Argentina
               </Button>
               <Button
+                onClick={() => this.handleCity("Brasilia, Brasil", "3469058")}
+                disabled={isButtonDisabled}
+              >
+                Brasilia, Brasil
+              </Button>
+              <Button
                 onClick={() => this.handleCity("Caracas, Venezuela", "3646738")}
-                disabled={this.state.isButtonDisabled}
+                disabled={isButtonDisabled}
               >
                 Caracas, Venezuela
               </Button>
               <Button
                 onClick={() => this.handleCity("Lima, Perú", "3936456")}
-                disabled={this.state.isButtonDisabled}
+                disabled={isButtonDisabled}
               >
                 Lima, Perú
               </Button>
@@ -210,47 +226,29 @@ class Weather extends Component {
                 onClick={() =>
                   this.handleCity("Montevideo, Uruguay", "3441575")
                 }
-                disabled={this.state.isButtonDisabled}
+                disabled={isButtonDisabled}
               >
                 Montevideo, Uruguay
               </Button>
               <Button
                 onClick={() => this.handleCity("Quito, Ecuador", "3652462")}
-                disabled={this.state.isButtonDisabled}
+                disabled={isButtonDisabled}
               >
                 Quito, Ecuador
-              </Button>
-              <Button
-                onClick={() => this.handleCity("Asunción, Paraguay", "3474570")}
-                disabled={this.state.isButtonDisabled}
-              >
-                Asunción, Paraguay
               </Button>
               <Button
                 onClick={() =>
                   this.handleCity("Santiago de Chile, Chile", "3871336")
                 }
-                disabled={this.state.isButtonDisabled}
+                disabled={isButtonDisabled}
               >
                 Santiago de Chile, Chile
               </Button>
               <Button
                 onClick={() => this.handleCity("Sucre, Bolivia", "3903987")}
-                disabled={this.state.isButtonDisabled}
+                disabled={isButtonDisabled}
               >
                 Sucre, Bolivia
-              </Button>
-              <Button
-                onClick={() => this.handleCity("Brasilia, Brasil", "3469058")}
-                disabled={this.state.isButtonDisabled}
-              >
-                Brasilia, Brasil
-              </Button>
-              <Button
-                onClick={() => this.handleCity("Bogota, Colombia", "3688689")}
-                disabled={this.state.isButtonDisabled}
-              >
-                Bogota, Colombia
               </Button>
             </ButtonGroup>
           </Col>
